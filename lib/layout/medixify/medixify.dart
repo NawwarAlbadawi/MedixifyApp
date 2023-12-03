@@ -8,6 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medixify/layout/medixify/cubit/app_cubit.dart';
 import 'package:medixify/layout/medixify/cubit/app_states.dart';
 import 'package:medixify/shared/style/colors.dart';
+
+import '../../generated/l10n.dart';
 class MedixifyApp extends StatelessWidget {
    MedixifyApp({super.key});
   @override
@@ -15,6 +17,7 @@ class MedixifyApp extends StatelessWidget {
     return BlocConsumer<MedixifyCubit,MedixifyStates>(
       listener: (context,states){},
       builder: (context,states){
+        var local=S.of(context);
         MedixifyCubit cubit=MedixifyCubit.get(context);
         return Scaffold(
 
@@ -58,10 +61,10 @@ class MedixifyApp extends StatelessWidget {
 
 
               tabs: [
-                GButton(icon: Icons.home,text: 'Home',),
-                GButton(icon: Icons.favorite,text: 'Favorites',),
-                GButton(icon:Icons.shopping_cart,text: 'Orders',),
-                GButton(icon: Icons.person,text: 'Profile',),
+                GButton(icon: Icons.home,text:local.home ,),
+                GButton(icon: Icons.favorite,text:local.favorite ,),
+                GButton(icon:Icons.shopping_cart,text:local.orders ,),
+                GButton(icon: Icons.person,text: local.profile,),
 
               ],
 

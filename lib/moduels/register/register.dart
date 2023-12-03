@@ -6,6 +6,8 @@ import 'package:medixify/shared/components/form_field.dart';
 import 'package:medixify/shared/components/navigator.dart';
 import 'package:medixify/shared/style/colors.dart';
 
+import '../../generated/l10n.dart';
+
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
@@ -20,6 +22,7 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var local=S.of(context);
     return Form(
       key: formKey,
       child: Scaffold(
@@ -39,14 +42,14 @@ class RegisterScreen extends StatelessWidget {
                       image: AssetImage('assets/images/Sign_up.jpeg'),
                     ),
                   ),
-                  Text('Register',
+                  Text(local.Register,
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold
 
                   ),),
                   SizedBox(height: 10,),
-                  Text('Please register to login',
+                  Text(local.please_register_to_login,
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500
@@ -62,7 +65,7 @@ class RegisterScreen extends StatelessWidget {
                       }
                       return null;
                     },
-                    label: 'Full Name',
+                    label: local.full_name,
                     prefix: Icons.person,
 
                   ),
@@ -75,7 +78,7 @@ class RegisterScreen extends StatelessWidget {
                            return 'Email mustn\'t be empty';
                          }
                         return null;
-                       }, label: 'Email address',
+                       }, label: local.Register_Email,
                    prefix: Icons.email,),
                   SizedBox(height: 15,),
                   BuildFormField(controller:phoneController ,
@@ -91,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                           }
                         return null;
                       },
-                      label: 'Phone number',
+                      label: local.Register_Phone_number,
                       prefix: Icons.phone_android,),
                   SizedBox(height: 15,),
                   BuildFormField(controller:passwordController ,
@@ -107,7 +110,7 @@ class RegisterScreen extends StatelessWidget {
                           }
                         return null;
                       },
-                      label: 'Password',
+                      label: local.Register_Password,
                        prefix: Icons.lock,),
                   SizedBox(height: 15,),
                   BuildFormField(controller:pharmacyNameController ,
@@ -119,7 +122,7 @@ class RegisterScreen extends StatelessWidget {
                         }
                         return null;
                       },
-                      label: 'Pharmacy name',
+                      label: local.Register_pharmacy_name,
                       prefix: Icons.person,),
                   SizedBox(height: 15,),
                   BuildFormField(controller:pharmacyAddressController ,
@@ -130,7 +133,7 @@ class RegisterScreen extends StatelessWidget {
                           return 'Pharmacy address mustn\'t be empty';
                         }
                         return null;
-                      }, label: 'Pharmacy address',
+                      }, label: local.Register_pharmacy_address,
                     prefix: Icons.location_on, ),
                   SizedBox(height: 15,),
 
@@ -151,7 +154,7 @@ class RegisterScreen extends StatelessWidget {
                           }
 
                       } ,
-                          text: 'Sign Up',
+                          text: local.Sign_up,
                         color: SilverChalice,
 
                       ),

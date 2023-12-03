@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:medixify/shared/style/colors.dart';
 
+import '../../generated/l10n.dart';
 import '../../shared/components/MatrialButton.dart';
 import '../../shared/components/navigator_and_replace.dart';
 import '../../shared/network/local/shared_preferebces.dart';
@@ -35,7 +36,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
          Spacer(),
-          Text('Welcome To Our App',
+          Text(S.of(context).On_boarding_title,
           style: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.bold,
@@ -55,7 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                        borderRadius: BorderRadius.circular(20)
                      ),
                      child: new BuildMatrialBotton(
-                       text: 'Start Now',
+                       text: S.of(context).start_Now,
                        color:SilverChalice,
                        onPressed: (){
                          CachHelper.setSharedPreferences(key: 'OnBoarding',value:true).then((value) {

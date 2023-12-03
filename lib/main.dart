@@ -1,11 +1,15 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:medixify/blocs/app_cubit/common_cubit.dart';
 import 'package:medixify/moduels/home/home.dart';
 import 'package:medixify/moduels/on_boarding/onboarding_screen.dart';
 import 'package:medixify/shared/network/local/shared_preferebces.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medixify/shared/style/app_theme.dart';
 
+import 'blocs/app_cubit/common_states.dart';
+import 'generated/l10n.dart';
 import 'layout/medixify/cubit/app_cubit.dart';
 import 'layout/medixify/medixify.dart';
 
@@ -17,6 +21,7 @@ import 'layout/medixify/medixify.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CachHelper.InitSharedPreferences();
+
   Widget screen;
   print( CachHelper.getSharedPreferences('OnBoarding'));
 
@@ -34,16 +39,36 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create:(context)=>MedixifyCubit()),
+        BlocProvider(create:(context)=>MedixifyCubit(),
+        ),
+        BlocProvider(create: (context)=>CommonCubit())
       ],
 
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: lightTheme,
-        themeMode: ThemeMode.light,
-        home: OnBoardingScreen(),
-      ),
+      child: BlocConsumer<CommonCubit,CommonStates>(
+        listener: (context,state){},
+        builder: (context,state)
+        {
+          return MaterialApp(
+            locale: Locale(CommonCubit.get(context).isarabic?'ar':'en'),
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: [
+              Locale('en'), // English
+              Locale('ar'), // Arabic
+            ],
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            theme: lightTheme,
+            themeMode: ThemeMode.light,
+            home: OnBoardingScreen(),
+          );
+        },
+
+      )
     );
   }
 }

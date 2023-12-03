@@ -1,0 +1,23 @@
+{
+  "On_boarding_title": "مرحبا بك في تطبيقنا",
+  "start_Now" : "ابدأ الان ",
+  "login_to_continue":"سجل الدخول للاستمرار" ,
+  "Login_Email_or_Phone": "البريد الالكتروني او رقم الهاتف",
+  "Login_password": "كلمة المرور",
+  "sign_in": "تسجبل الدخول",
+  "Register":"سجل الان",
+  "Dont_have_an_account": "لا تمتلك حساب ؟",
+  "please_register_to_login": "ادخل المعلومات المطلوبة لتسجيل الدخول ",
+  "full_name": "الاسم الكامل",
+  "Register_Email":"البريد الالكتروني",
+  "Register_Phone_number": "رقم الهاتف",
+  "Register_Password": "كلمة المرور",
+  "Register_pharmacy_name": "اسم الصيدلية",
+  "Register_pharmacy_address": "عنوان الصيدلية"  ,
+  "Sign_up": "تسجيل",
+  "home": "الرئيسية",
+  "favorite":"المفضلة",
+  "orders": "الطلبات",
+  "profile":"الحساب"
+
+}

@@ -1,0 +1,26 @@
+{
+  "On_boarding_title": "Welcome To Our App",
+  "start_Now" : "Start Now",
+  "login_to_continue":"Login to continue" ,
+  "Login_Email_or_Phone": "Email address or Phone number",
+  "Login_password": "Password",
+  "sign_in":"Sign In",
+  "Register_now": "Register Now",
+  "Register": "Register",
+  "Dont_have_an_account": "Don'''t have an account ?",
+  "please_register_to_login": "Please register to login",
+  "full_name": "Full name",
+  "Register_Email":"Email address",
+  "Register_Phone_number": "Phone number",
+  "Register_Password": "Password",
+  "Register_pharmacy_name": "Pharmacy name",
+  "Register_pharmacy_address": "Pharmacy address"  ,
+  "Sign_up": "Sign Up",
+  "home":"Home",
+  "favorite":"Favorite",
+  "orders": "orders",
+  "profile":"Profile"
+
+
+
+}

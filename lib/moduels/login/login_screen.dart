@@ -6,12 +6,14 @@ import 'package:medixify/blocs/cubit/login_register_states.dart';
 import 'package:medixify/layout/medixify/medixify.dart';
 
 
+import '../../generated/l10n.dart';
 import '../../shared/components/MatrialButton.dart';
 import '../../shared/components/form_field.dart';
 import '../../shared/components/navigator.dart';
 import '../../shared/style/colors.dart';
 import '../register/register.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class LoginScreen extends StatelessWidget {
  LoginScreen({super.key});
@@ -27,6 +29,7 @@ class LoginScreen extends StatelessWidget {
       child: BlocConsumer<LoginAndRegisterCubit,LoginAndRegisterStates>(
         listener: (context,states){},
         builder: (context,states){
+          var local=S.of(context);
           return Form(
             key: formKey,
             child: Scaffold(
@@ -44,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                           child: Image(image:
                             AssetImage('assets/images/login.jpeg')),
                         ),
-                        Text('Login to continue !',
+                        Text(local.login_to_continue,
                           style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
@@ -64,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                             return null;
                           },
                           prefix:Icons.login_outlined ,
-                          label: 'Email address or Phone number',
+                          label: S.of(context).Login_Email_or_Phone,
                           needscure: false,
                         ),
                         SizedBox(height: 20,),
@@ -84,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                             return null;
                           },
                           prefix:Icons.lock_outline ,
-                          label: 'Password',
+                          label: S.of(context).Login_password,
                           needscure: LoginAndRegisterCubit.get(context).showPassword,
                           suffix: LoginAndRegisterCubit.get(context).Scure_Icon,
                           suffixBotton: (){
@@ -109,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                                 BuildNavigator(context:context,widget: MedixifyApp());
                               }
                           },
-                              text: 'Sign In',
+                              text: local.Register,
                           color:SilverChalice,),
 
                         ),
@@ -119,7 +122,7 @@ class LoginScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
 
                           children: [
-                            Text('Don\'t have an account ?',
+                            Text(local.Dont_have_an_account,
                               style: TextStyle(
                                   fontSize: 15
                               ),),
@@ -130,7 +133,7 @@ class LoginScreen extends StatelessWidget {
                                widget: RegisterScreen()
                              );
                             },
-                                child: Text('Register Now',
+                                child: Text(local.Register,
                                   style: TextStyle(
                                       fontSize: 15,
                                     color: SilverChalice
