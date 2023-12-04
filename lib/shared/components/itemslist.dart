@@ -1,0 +1,41 @@
+
+import 'package:flutter/material.dart';
+
+import '../style/colors.dart';
+
+class ItemsList extends StatelessWidget {
+  const ItemsList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      itemBuilder:(context,index)=>Container(
+        decoration: BoxDecoration(
+            border: Border.all(
+                color: YankeesBlue
+            ),
+          borderRadius: BorderRadius.circular(20)
+        ),
+        height: 120,
+        child: Row(
+          children: [
+            Image(image: AssetImage('assets/images/Download_Isometric_Pharmacy_and_Medication_Production_Concept_for_free-removebg.png')),
+            Spacer(),
+            Text('asdaf')
+          ],
+        ),
+      ),
+      separatorBuilder:(context,index)=>Container(height: 5,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+        ),
+
+      ) , itemCount: 10,
+
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+
+    );
+  }
+}

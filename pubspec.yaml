@@ -94,6 +94,7 @@ flutter:
      - assets/images/Download_Isometric_Pharmacy_and_Medication_Production_Concept_for_free-removebg.png
      - assets/images/Sign_up.jpeg
      - assets/images/login.jpeg
+     - assets/images/notfound.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

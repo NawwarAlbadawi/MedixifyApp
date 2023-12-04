@@ -21,7 +21,7 @@ class MedixifyApp extends StatelessWidget {
         MedixifyCubit cubit=MedixifyCubit.get(context);
         return Scaffold(
 
-          appBar: AppBar(),
+
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.only(
               bottom: 10,
@@ -45,7 +45,7 @@ class MedixifyApp extends StatelessWidget {
               curve: Curves.easeOutExpo, // tab animation curves
               duration: Duration(milliseconds: 90), // tab animation duration
               gap: 2, // the tab button gap between icon and text
-              color: PoliceBlue,
+              color:YankeesBlue,
               activeColor:ViridianGreen,
 
               // unselected icon color

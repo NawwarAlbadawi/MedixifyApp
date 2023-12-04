@@ -112,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                                 BuildNavigator(context:context,widget: MedixifyApp());
                               }
                           },
-                              text: local.Register,
+                              text: local.sign_in ,
                           color:SilverChalice,),
 
                         ),
