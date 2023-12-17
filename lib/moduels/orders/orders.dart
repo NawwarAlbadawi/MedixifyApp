@@ -15,7 +15,7 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      color: YankeesBlue,
+      color: basicColor,
       triggerMode: RefreshIndicatorTriggerMode.anywhere,
 
 
@@ -28,7 +28,6 @@ class OrdersScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-
               children: [
 
                 Container(
@@ -43,26 +42,18 @@ class OrdersScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 ItemsList()
-
-
-
-
-
-
               ],
             )
         ),
       ),
     );
-
-
 }
    Widget BuildCatigories()
    {
      return Column(
        children: [
          CircleAvatar(
-           backgroundColor: YankeesBlue,
+           backgroundColor: basicColor,
            radius: 30,
          ),
          SizedBox(height: 10,),

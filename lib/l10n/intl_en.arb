@@ -4,7 +4,17 @@
   "login_to_continue":"Login to continue" ,
   "Login_Email_or_Phone": "Email address or Phone number",
   "Login_password": "Password",
+  "email_validate":"Email or Phone mustn't be empty",
+  "name_validate":"Name mustn't be empty",
+  "phone_validate":"Phone mustn't be empty",
+  "phone_validate2":"Please enter correct number",
+  "pharmacy_name_validate":"Pharmacy name mustn't be empty",
+  "city_validate":"City mustn't be empty",
+  "pharmacy_address_validate":"Pharmacy address mustn't be empty",
+  "password_validate1": "Password mustn't be empty",
+  "password_validate2": "Password is too short",
   "sign_in":"Sign In",
+
   "Register_now": "Register Now",
   "Register": "Register",
   "Dont_have_an_account": "Don't have an account ?",
@@ -14,12 +24,14 @@
   "Register_Phone_number": "Phone number",
   "Register_Password": "Password",
   "Register_pharmacy_name": "Pharmacy name",
+  "Register_city": "City",
   "Register_pharmacy_address": "Pharmacy address"  ,
   "Sign_up": "Sign Up",
   "home":"Home",
   "favorite":"Favorite",
   "orders": "orders",
-  "profile":"Profile"
+  "profile":"Profile",
+  "search_med": "Search for medicine"
 
 
 

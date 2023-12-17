@@ -5,34 +5,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/material/colors.dart';
 import 'package:flutter/src/material/colors.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:medixify/shared/style/colors.dart';
 
 final lightTheme=ThemeData(
-  primaryColor: YankeesBlue,
+  primaryColor: basicColor,
   primarySwatch: buildMaterialColor(SilverChalice),
 
   appBarTheme: AppBarTheme(
       color: Colors.white,
-
-
       elevation: 0.0,
       systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.light,
           statusBarColor: Colors.white
       ),
-
 
       foregroundColor: Colors.white,
       iconTheme: IconThemeData(
         color: SilverChalice,
       ),
 
-      backwardsCompatibility: false,
+      backwardsCompatibility: true,
 
 
 
   ),
   scaffoldBackgroundColor: Colors.white,
+
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    elevation: 10,
+    backgroundColor: Colors.cyan,
+    type: BottomNavigationBarType.fixed
+  ),
+
+
+  textTheme: TextTheme(
+
+  )
 
 
 

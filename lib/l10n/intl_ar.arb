@@ -4,7 +4,16 @@
   "login_to_continue":"سجل الدخول للاستمرار" ,
   "Login_Email_or_Phone": "البريد الالكتروني او رقم الهاتف",
   "Login_password": "كلمة المرور",
-  "sign_in": "تسجبل الدخول",
+  "email_validate":"الايميل يجب الا يكون فارغ",
+  "name_validate":"الاسم يجب الا يكون فارغ",
+  "phone_validate":"رقم الهاتف يجب الا يكون فارغ",
+  "phone_validate2":"رجاءا ادخل رقم صحيح",
+  "pharmacy_name_validate":"اسم الصيدلية يجب الا يكون فارغ",
+  "city_validate":"المدينة يجب الا تكون فارغة",
+  "pharmacy_address_validate":"عنوان الصيدلية يجب الا يكون فارغ",
+  "Password_validate1": "كلمة السر يجب الا تكون فارغة",
+  "Password_validate2": "كلمة قصيرة جدا",
+  "sign_in": "تسجيل الدخول",
   "Register":"سجل الان",
   "Dont_have_an_account": "لا تمتلك حساب ؟",
   "please_register_to_login": "ادخل المعلومات المطلوبة لتسجيل الدخول ",
@@ -13,11 +22,13 @@
   "Register_Phone_number": "رقم الهاتف",
   "Register_Password": "كلمة المرور",
   "Register_pharmacy_name": "اسم الصيدلية",
+  "Register_city": "المدينة",
   "Register_pharmacy_address": "عنوان الصيدلية"  ,
   "Sign_up": "تسجيل",
   "home": "الرئيسية",
   "favorite":"المفضلة",
   "orders": "الطلبات",
-  "profile":"الحساب"
+  "profile":"الحساب",
+  "search_med": "ابحث عن دواء"
 
 }

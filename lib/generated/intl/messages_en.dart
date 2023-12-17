@@ -34,21 +34,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "Register_Password": MessageLookupByLibrary.simpleMessage("Password"),
         "Register_Phone_number":
             MessageLookupByLibrary.simpleMessage("Phone number"),
+        "Register_city": MessageLookupByLibrary.simpleMessage("City"),
         "Register_now": MessageLookupByLibrary.simpleMessage("Register Now"),
         "Register_pharmacy_address":
             MessageLookupByLibrary.simpleMessage("Pharmacy address"),
         "Register_pharmacy_name":
             MessageLookupByLibrary.simpleMessage("Pharmacy name"),
         "Sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "city_validate":
+            MessageLookupByLibrary.simpleMessage("City mustn\'t be empty"),
+        "email_validate": MessageLookupByLibrary.simpleMessage(
+            "Email or Phone mustn\'t be empty"),
         "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full name"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "login_to_continue":
             MessageLookupByLibrary.simpleMessage("Login to continue"),
+        "name_validate":
+            MessageLookupByLibrary.simpleMessage("Name mustn\'t be empty"),
         "orders": MessageLookupByLibrary.simpleMessage("orders"),
+        "password_validate1":
+            MessageLookupByLibrary.simpleMessage("Password mustn\'t be empty"),
+        "password_validate2":
+            MessageLookupByLibrary.simpleMessage("Password is too short"),
+        "pharmacy_address_validate": MessageLookupByLibrary.simpleMessage(
+            "Pharmacy address mustn\'t be empty"),
+        "pharmacy_name_validate": MessageLookupByLibrary.simpleMessage(
+            "Pharmacy name mustn\'t be empty"),
+        "phone_validate":
+            MessageLookupByLibrary.simpleMessage("Phone mustn\'t be empty"),
+        "phone_validate2":
+            MessageLookupByLibrary.simpleMessage("Please enter correct number"),
         "please_register_to_login":
             MessageLookupByLibrary.simpleMessage("Please register to login"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "search_med":
+            MessageLookupByLibrary.simpleMessage("Search for medicine"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign In"),
         "start_Now": MessageLookupByLibrary.simpleMessage("Start Now")
       };

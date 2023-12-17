@@ -36,21 +36,37 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "Register_Phone_number":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "Register_city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "Register_pharmacy_address":
             MessageLookupByLibrary.simpleMessage("عنوان الصيدلية"),
         "Register_pharmacy_name":
             MessageLookupByLibrary.simpleMessage("اسم الصيدلية"),
         "Sign_up": MessageLookupByLibrary.simpleMessage("تسجيل"),
+        "city_validate":
+            MessageLookupByLibrary.simpleMessage("المدينة يجب الا تكون فارغة"),
+        "email_validate":
+            MessageLookupByLibrary.simpleMessage("الايميل يجب الا يكون فارغ"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "login_to_continue":
             MessageLookupByLibrary.simpleMessage("سجل الدخول للاستمرار"),
+        "name_validate":
+            MessageLookupByLibrary.simpleMessage("الاسم يجب الا يكون فارغ"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
+        "pharmacy_address_validate": MessageLookupByLibrary.simpleMessage(
+            "عنوان الصيدلية يجب الا يكون فارغ"),
+        "pharmacy_name_validate": MessageLookupByLibrary.simpleMessage(
+            "اسم الصيدلية يجب الا يكون فارغ"),
+        "phone_validate": MessageLookupByLibrary.simpleMessage(
+            "رقم الهاتف يجب الا يكون فارغ"),
+        "phone_validate2":
+            MessageLookupByLibrary.simpleMessage("رجاءا ادخل رقم صحيح"),
         "please_register_to_login": MessageLookupByLibrary.simpleMessage(
             "ادخل المعلومات المطلوبة لتسجيل الدخول "),
         "profile": MessageLookupByLibrary.simpleMessage("الحساب"),
-        "sign_in": MessageLookupByLibrary.simpleMessage("تسجبل الدخول"),
+        "search_med": MessageLookupByLibrary.simpleMessage("ابحث عن دواء"),
+        "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "start_Now": MessageLookupByLibrary.simpleMessage("ابدأ الان ")
       };
 }

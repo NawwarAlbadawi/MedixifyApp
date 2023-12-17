@@ -31,7 +31,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
            // height:400,
             //color: Colors.black,
             child: Image(
-              image: AssetImage('assets/images/Download_Isometric_Pharmacy_and_Medication_Production_Concept_for_free-removebg.png',),
+              image: AssetImage('assets/images/new.png',),
               fit: BoxFit.cover,
             ),
           ),
@@ -40,7 +40,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           style: TextStyle(
             fontSize: 40,
             fontWeight: FontWeight.bold,
-            color: PoliceBlue,
+            color: basicColor,
 
 
           ),
@@ -52,10 +52,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                    child: Container(
                      width: double.infinity,
                      decoration: BoxDecoration(
-                       color: YankeesBlue,
+                       color: basicColor,
                        borderRadius: BorderRadius.circular(20)
                      ),
-                     child: new BuildMatrialBotton(
+                     child:  BuildMatrialBotton(
                        text: S.of(context).start_Now,
                        color:SilverChalice,
                        onPressed: (){

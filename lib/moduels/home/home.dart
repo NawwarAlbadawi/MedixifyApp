@@ -1,13 +1,19 @@
 
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medixify/layout/medixify/cubit/app_cubit.dart';
 import 'package:medixify/layout/medixify/cubit/app_states.dart';
+import 'package:medixify/moduels/catigories/catigories.dart';
 import 'package:medixify/shared/components/MatrialButton.dart';
 import 'package:medixify/shared/components/form_field.dart';
 import 'package:medixify/shared/components/items_grid.dart';
+import 'package:medixify/shared/components/navigator.dart';
 import 'package:medixify/shared/components/refresh.dart';
 import 'package:medixify/shared/style/colors.dart';
+
+import '../../generated/l10n.dart';
 
 class HomeScreen extends StatelessWidget {
    HomeScreen({super.key});
@@ -20,7 +26,7 @@ class HomeScreen extends StatelessWidget {
         builder: (context,states){
 
           return RefreshIndicator(
-            color: YankeesBlue,
+            color: basicColor,
             triggerMode: RefreshIndicatorTriggerMode.anywhere,
 
 
@@ -33,26 +39,32 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
 
                       children: [
-                        SizedBox(height: 25,),
 
-                        Container(
-                          width:double.infinity,
-                          child: BuildFormField(controller:searchController ,
-                            inputType: TextInputType.text,
-                            validator: (value){
-                              return null;
-                            },
-                            label: 'Search Med',
-                            prefix: Icons.search,),
+
+                        Row(
+                          children: [
+                            Container(
+                              width: 290,
+                              child: BuildFormField(controller:searchController ,
+                                inputType: TextInputType.text,
+                                validator: (value){
+                                  return null;
+                                },
+                                label: S.of(context).search_med,
+                                prefix: Icons.search,),
+                            ),
+                            Spacer(),
+                            IconButton(onPressed: (){},
+                                icon: Icon(Icons.shopping_bag_outlined))
+                          ],
                         ),
                         SizedBox(height: 20,),
-
-
                         Container(
                           height: 90 ,
-                          child: ListView.separated(itemBuilder:(context,index)=> BuildCatigories(),
+                          child: ListView.separated(itemBuilder:(context,index)=> BuildCatigories(context),
                             separatorBuilder: (context,index)=>Padding(padding: EdgeInsets.only(right:10 )),
                             itemCount:10,
                             scrollDirection: Axis.horizontal,
@@ -61,11 +73,9 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 20,),
-
-
-
                          ItemsGrid(medprice: '1200',
                         medname: 'Profine',),
+
 
 
 
@@ -79,20 +89,29 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-   Widget BuildCatigories()
+   Widget BuildCatigories(context)
    {
-     return Column(
-       children: [
-         CircleAvatar(
-           backgroundColor: YankeesBlue,
-           radius: 30,
-         ),
-         SizedBox(height: 10,),
-         Text('UntiBioteq',
-         style: TextStyle(
-           fontSize: 10
-         ),)
-       ],
+     return InkWell(
+       onTap: (){
+         NavigateTo(
+           context: context,
+           widget: CatigoriesScreen()
+         );
+       }
+       ,
+       child: Column(
+         children: [
+           CircleAvatar(
+             backgroundColor: basicColor,
+             radius: 30,
+           ),
+           SizedBox(height: 10,),
+           Text('UntiBioteq',
+           style: TextStyle(
+             fontSize: 10
+           ),)
+         ],
+       ),
      );
    }
 

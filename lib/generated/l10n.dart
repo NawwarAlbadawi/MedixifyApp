@@ -100,6 +100,96 @@ class S {
     );
   }
 
+  /// `Email or Phone mustn't be empty`
+  String get email_validate {
+    return Intl.message(
+      'Email or Phone mustn\'t be empty',
+      name: 'email_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name mustn't be empty`
+  String get name_validate {
+    return Intl.message(
+      'Name mustn\'t be empty',
+      name: 'name_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone mustn't be empty`
+  String get phone_validate {
+    return Intl.message(
+      'Phone mustn\'t be empty',
+      name: 'phone_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter correct number`
+  String get phone_validate2 {
+    return Intl.message(
+      'Please enter correct number',
+      name: 'phone_validate2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pharmacy name mustn't be empty`
+  String get pharmacy_name_validate {
+    return Intl.message(
+      'Pharmacy name mustn\'t be empty',
+      name: 'pharmacy_name_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City mustn't be empty`
+  String get city_validate {
+    return Intl.message(
+      'City mustn\'t be empty',
+      name: 'city_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pharmacy address mustn't be empty`
+  String get pharmacy_address_validate {
+    return Intl.message(
+      'Pharmacy address mustn\'t be empty',
+      name: 'pharmacy_address_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password mustn't be empty`
+  String get password_validate1 {
+    return Intl.message(
+      'Password mustn\'t be empty',
+      name: 'password_validate1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is too short`
+  String get password_validate2 {
+    return Intl.message(
+      'Password is too short',
+      name: 'password_validate2',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign In`
   String get sign_in {
     return Intl.message(
@@ -200,6 +290,16 @@ class S {
     );
   }
 
+  /// `City`
+  String get Register_city {
+    return Intl.message(
+      'City',
+      name: 'Register_city',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Pharmacy address`
   String get Register_pharmacy_address {
     return Intl.message(
@@ -255,6 +355,16 @@ class S {
     return Intl.message(
       'Profile',
       name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for medicine`
+  String get search_med {
+    return Intl.message(
+      'Search for medicine',
+      name: 'search_med',
       desc: '',
       args: [],
     );

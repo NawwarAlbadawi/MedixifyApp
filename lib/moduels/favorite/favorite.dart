@@ -18,8 +18,9 @@ class FavoritesScreen extends StatelessWidget {
     return  BlocConsumer<MedixifyCubit,MedixifyStates>(
         listener: (context,states){},
         builder: (context,states){
+
           return RefreshIndicator(
-            color: YankeesBlue,
+            color: basicColor,
             triggerMode: RefreshIndicatorTriggerMode.anywhere,
             onRefresh: () {
               return refresh();
@@ -28,8 +29,10 @@ class FavoritesScreen extends StatelessWidget {
               child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
+
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+
                       Container(
 
                         child: BuildFormField(controller:searchController ,

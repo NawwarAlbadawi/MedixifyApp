@@ -12,16 +12,18 @@ class ItemsList extends StatelessWidget {
       itemBuilder:(context,index)=>Container(
         decoration: BoxDecoration(
             border: Border.all(
-                color: YankeesBlue
+                color: basicColor
             ),
           borderRadius: BorderRadius.circular(20)
         ),
         height: 120,
         child: Row(
           children: [
-            Image(image: AssetImage('assets/images/Download_Isometric_Pharmacy_and_Medication_Production_Concept_for_free-removebg.png')),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+                child: Image(image: AssetImage('assets/images/Download_Isometric_Pharmacy_and_Medication_Production_Concept_for_free-removebg.png'))),
             Spacer(),
-            Text('asdaf')
+            Text('products')
           ],
         ),
       ),

@@ -44,7 +44,12 @@ dependencies:
   flutter_bloc: ^8.1.3
   google_nav_bar: ^5.0.6
   ionicons: ^0.2.2
-  flutter_launcher_icons: "^0.13.1"
+  toastification: ^0.0.3
+  flutter_launcher_icons: ^0.13.1
+  dot_navigation_bar: ^1.0.2
+  flutter_dialogs: ^3.0.0
+
+
   flutter_localizations:
     sdk: flutter
 
@@ -52,7 +57,7 @@ dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assest/images/AppIcon.jpg"
+  image_path: "assets/images/alogo.png"
   intl_utils: ^2.8.6
 
 
@@ -89,12 +94,13 @@ flutter:
 
 
   assets:
-     - assets/images/OnBoardingImage.jpeg
-     - assets/images/OnBoarding1.jpeg
-     - assets/images/Download_Isometric_Pharmacy_and_Medication_Production_Concept_for_free-removebg.png
      - assets/images/Sign_up.jpeg
      - assets/images/login.jpeg
      - assets/images/notfound.jpg
+     - assets/images/onboard.jpg
+     - assets/images/register2.png
+     - assets/images/avatar.jpg
+     - assets/images/new.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

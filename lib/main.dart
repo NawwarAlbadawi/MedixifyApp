@@ -2,16 +2,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:medixify/blocs/app_cubit/common_cubit.dart';
+import 'package:medixify/blocs/login_regiser_cubit/login_register_cubit.dart';
 import 'package:medixify/moduels/home/home.dart';
+import 'package:medixify/moduels/item/item.dart';
+import 'package:medixify/moduels/login/login_screen.dart';
 import 'package:medixify/moduels/on_boarding/onboarding_screen.dart';
+import 'package:medixify/shared/constans/constans.dart';
 import 'package:medixify/shared/network/local/shared_preferebces.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medixify/shared/network/remote/dio_helper.dart';
 import 'package:medixify/shared/style/app_theme.dart';
 
+import 'bloc_observer.dart';
 import 'blocs/app_cubit/common_states.dart';
 import 'generated/l10n.dart';
 import 'layout/medixify/cubit/app_cubit.dart';
 import 'layout/medixify/medixify.dart';
+import 'package:flutter/services.dart';
 
 
 
@@ -19,35 +26,67 @@ import 'layout/medixify/medixify.dart';
 
 
 void main() async {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark
+    )
+  );
+  Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   await CachHelper.InitSharedPreferences();
+  DioHelper.InitDio();
+  Widget screen=OnBoardingScreen();
+  if(token!=null)
+    {
+      screen=MedixifyApp();
+    }
 
-  Widget screen;
-  print( CachHelper.getSharedPreferences('OnBoarding'));
 
 
-  runApp( MyApp());
+
+
+  runApp( MyApp(
+  screen: screen,));
 }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key,
+
+    required this.screen
   });
-  //Widget screen;
+
+ late Widget screen;
+
+
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create:(context)=>MedixifyCubit(),
+        BlocProvider(create:(context)=>MedixifyCubit()..getData(),
         ),
-        BlocProvider(create: (context)=>CommonCubit())
+        BlocProvider(create: (context)=>CommonCubit()),
+        BlocProvider(create: (context)=>LoginAndRegisterCubit())
       ],
 
       child: BlocConsumer<CommonCubit,CommonStates>(
-        listener: (context,state){},
+        listener: (context,state){
+
+        },
         builder: (context,state)
         {
+              if(CachHelper.getSharedPreferences('arabic')!=null&&
+                  CachHelper.getSharedPreferences('arabic')=='العربية')
+                {
+                  CommonCubit.get(context).isarabic=true;
+                }
+
+
+
+
           return MaterialApp(
             locale: Locale(CommonCubit.get(context).isarabic?'ar':'en'),
             localizationsDelegates: [
@@ -64,7 +103,7 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             theme: lightTheme,
             themeMode: ThemeMode.light,
-            home: OnBoardingScreen(),
+            home:screen,
           );
         },
 
@@ -73,87 +112,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
