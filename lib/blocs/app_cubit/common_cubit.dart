@@ -51,10 +51,16 @@ class CommonCubit extends Cubit<CommonStates>
 
 
   }
-
+  void logOut()
+  {
+    DioHelper.getData(path: "logout",
+        token:CachHelper.getSharedPreferences('token') ).then((value) {
+          emit(LogoutSuccsesState());
+    });
+  }
   void getData()
   {
-    DioHelper.getData('profile',token).then((value) {
+    DioHelper.getData(path:'profile',token:token).then((value) {
       //print(token);
       print(value.data);
       emit(GetProfileSuccessesState());

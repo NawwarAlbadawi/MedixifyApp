@@ -1,4 +1,5 @@
 
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medixify/layout/medixify/cubit/app_cubit.dart';
@@ -14,59 +15,45 @@ class OrdersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MedixifyCubit.get(context).GetOrder();
     return RefreshIndicator(
       color: basicColor,
       triggerMode: RefreshIndicatorTriggerMode.anywhere,
 
 
       onRefresh: () {
-        return refresh();
+        return refresh(context);
       },
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+      child: BlocConsumer<MedixifyCubit,MedixifyStates>(
+        listener: (context,state){},
 
-                Container(
-                  width:double.infinity,
-                  child: BuildFormField(controller:searchController ,
-                    inputType: TextInputType.text,
-                    validator: (value){
-                      return null;
-                    },
-                    label: 'Search Med',
-                    prefix: Icons.search,),
+        builder: (context,state){
+          return  ConditionalBuilder(condition:MedixifyCubit.get(context).orderModel!=null ,
+              builder: (context)=>SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+
+
+                        SizedBox(height: 20,),
+                        ItemsList(model: MedixifyCubit.get(context).orderModel!,)
+                      ],
+                    )
                 ),
-                SizedBox(height: 20,),
-                ItemsList()
-              ],
-            )
-        ),
+              ),
+              fallback:(context)=> Center(
+          child: CircularProgressIndicator()));
+        },
       ),
     );
 }
-   Widget BuildCatigories()
-   {
-     return Column(
-       children: [
-         CircleAvatar(
-           backgroundColor: basicColor,
-           radius: 30,
-         ),
-         SizedBox(height: 10,),
-         Text('UntiBioteq',
-           style: TextStyle(
-               fontSize: 10
-           ),)
-       ],
-     );
-   }
-   Future<void>refresh()
+
+   Future<void>refresh(context)
    async {
-    ItemsList();
+   MedixifyCubit.get(context).GetOrder();
      return Future.delayed(
          Duration(
              milliseconds: 100

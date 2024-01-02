@@ -20,15 +20,37 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(howMany) =>
+      "${Intl.plural(howMany, one: 'غير مدفوع', other: 'مدفوع')}";
+
+  static String m1(howMany) =>
+      "${Intl.plural(howMany, one: 'تم الٳرسال', two: 'قيد التحضير', other: 'مستلمة')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Account_Information":
+            MessageLookupByLibrary.simpleMessage(" معلومات الحساب "),
+        "Amount": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "Available_quantity":
+            MessageLookupByLibrary.simpleMessage("الكمية المتاحة "),
+        "Category": MessageLookupByLibrary.simpleMessage("الصنف"),
+        "Commercial_name":
+            MessageLookupByLibrary.simpleMessage("الاسم التجاري"),
+        "Company": MessageLookupByLibrary.simpleMessage("الشركة المصنعة"),
         "Dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("لا تمتلك حساب ؟"),
+        "Expiration_date":
+            MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
         "Login_Email_or_Phone": MessageLookupByLibrary.simpleMessage(
             "البريد الالكتروني او رقم الهاتف"),
         "Login_password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "Logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "My_Cart": MessageLookupByLibrary.simpleMessage("سلَتي"),
         "On_boarding_title":
             MessageLookupByLibrary.simpleMessage("مرحبا بك في تطبيقنا"),
+        "Price": MessageLookupByLibrary.simpleMessage("السعر"),
+        "Profile_Details":
+            MessageLookupByLibrary.simpleMessage("تفاصيل الحساب"),
         "Register": MessageLookupByLibrary.simpleMessage("سجل الان"),
         "Register_Email":
             MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
@@ -41,19 +63,43 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("عنوان الصيدلية"),
         "Register_pharmacy_name":
             MessageLookupByLibrary.simpleMessage("اسم الصيدلية"),
+        "SP": MessageLookupByLibrary.simpleMessage("ل.س"),
+        "Scientific_name": MessageLookupByLibrary.simpleMessage("الاسم العلمي"),
+        "Search": MessageLookupByLibrary.simpleMessage("البحث"),
         "Sign_up": MessageLookupByLibrary.simpleMessage("تسجيل"),
+        "Total": MessageLookupByLibrary.simpleMessage("الاجمالي"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "change_password_validate": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور الجديدة غير متطابقة. ادخل كلمة المرور الجديدة مرة أخرى هنا"),
         "city_validate":
             MessageLookupByLibrary.simpleMessage("المدينة يجب الا تكون فارغة"),
+        "confirm_password":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "email_validate":
             MessageLookupByLibrary.simpleMessage("الايميل يجب الا يكون فارغ"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "login_error":
+            MessageLookupByLibrary.simpleMessage(" لايمكن ايجاد الحساب"),
         "login_to_continue":
             MessageLookupByLibrary.simpleMessage("سجل الدخول للاستمرار"),
+        "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "name_validate":
             MessageLookupByLibrary.simpleMessage("الاسم يجب الا يكون فارغ"),
+        "onboarding":
+            MessageLookupByLibrary.simpleMessage("اكتشف عالم جديد للصيدليات"),
+        "orderPaymentStatus": m0,
+        "orderStatus": m1,
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
+        "password_changed":
+            MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح"),
+        "password_validate1": MessageLookupByLibrary.simpleMessage(
+            "كلمة السر يجب الا تكون فارغة"),
+        "password_validate2":
+            MessageLookupByLibrary.simpleMessage("كلمة قصيرة جدا"),
         "pharmacy_address_validate": MessageLookupByLibrary.simpleMessage(
             "عنوان الصيدلية يجب الا يكون فارغ"),
         "pharmacy_name_validate": MessageLookupByLibrary.simpleMessage(
@@ -65,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_register_to_login": MessageLookupByLibrary.simpleMessage(
             "ادخل المعلومات المطلوبة لتسجيل الدخول "),
         "profile": MessageLookupByLibrary.simpleMessage("الحساب"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "search_med": MessageLookupByLibrary.simpleMessage("ابحث عن دواء"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "start_Now": MessageLookupByLibrary.simpleMessage("ابدأ الان ")

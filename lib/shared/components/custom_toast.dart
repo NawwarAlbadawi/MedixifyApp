@@ -20,7 +20,8 @@ class CustomToast  {
         borderRadius: BorderRadius.circular(30),
         closeOnClick: true,
         pauseOnHover: true,
-        showProgressBar: false
+        showProgressBar: false,
+
 
     );
   }

@@ -1,5 +1,7 @@
 
 
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -30,12 +32,13 @@ class MedixifyApp extends StatelessWidget {
 
 
 
+
             bottomNavigationBar: Padding(
               padding: const EdgeInsets.only(
-                bottom: 2,
-                left: 10,
-                right: 10,
-                top: 2
+                  bottom: 2,
+                  left: 10,
+                  right: 10,
+                  top: 2
               ),
               child: GNav(
 
@@ -48,7 +51,7 @@ class MedixifyApp extends StatelessWidget {
                 haptic: true, // haptic feedback
                 tabBorderRadius: 40,
                 tabActiveBorder: Border.all(color: basicColor, width: 1), // tab button border
-               // tabShadow: [BoxShadow(color: Colors.white.withOpacity(0.5), blurRadius: 8)], // tab button shadow
+                // tabShadow: [BoxShadow(color: Colors.white.withOpacity(0.5), blurRadius: 8)], // tab button shadow
                 curve: Curves.easeOutExpo, // tab animation curves
                 duration: Duration(milliseconds: 90), // tab animation duration
                 gap: 2, // the tab button gap between icon and text
@@ -86,6 +89,7 @@ class MedixifyApp extends StatelessWidget {
 
               ),
             ),
+
 
             body:cubit.screens[cubit.currentIndex] ,
           ),

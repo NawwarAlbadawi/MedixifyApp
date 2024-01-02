@@ -3,8 +3,10 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:medixify/blocs/app_cubit/common_cubit.dart';
 import 'package:medixify/blocs/login_regiser_cubit/login_register_cubit.dart';
 import 'package:medixify/blocs/login_regiser_cubit/login_register_states.dart';
+import 'package:medixify/models/city_model.dart';
 import 'package:medixify/moduels/login/login_screen.dart';
 import 'package:medixify/shared/components/MatrialButton.dart';
 import 'package:medixify/shared/components/custom_toast.dart';
@@ -26,11 +28,11 @@ class RegisterScreen extends StatelessWidget {
   var pharmacyAddressController=TextEditingController();
   var cityController=TextEditingController();
 
-  String title="nawwar";
-  List<String>city=[
-    'aa','bb','cc','dd','ad','ada',''
-  ];
+
+
   var formKey=GlobalKey<FormState>();
+
+  int ? id;
 
 
 
@@ -61,10 +63,21 @@ class RegisterScreen extends StatelessWidget {
         }
     },
       builder: (context,state){
+
+   var cubit=LoginAndRegisterCubit.get(context);
+
+
       return Form(
         key: formKey,
         child: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            leading: IconButton(
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+                icon: Icon(Icons.arrow_back_ios)) ,
+
+          ),
           body: Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -76,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
                     Container(
                       width: double.infinity,
                       child: Image(
-                        image: AssetImage('assets/images/register2.png'),
+                        image: AssetImage('assets/images/Sign up.png'),
                       ),
                     ),
                     Text(local.Register,
@@ -176,18 +189,15 @@ class RegisterScreen extends StatelessWidget {
                             icon: Icon(Icons.location_city_outlined),
 
                             itemBuilder: (context)=>List.generate(
-                                city.length,
-                                    (index)=>PopupMenuItem(child: Text(city[index],
+                                cubit.cityModel!.cityData!.length,
+                                    (index)=>PopupMenuItem(child: Text('${CommonCubit.get(context).isarabic?
+                                   cubit.arabicCity[index]:cubit.englishCity[index]}',
                                     selectionColor: Colors.red,),
-                                    value:city[index] ,)
+                                    value:cubit.cityModel!.cityData![index] ,)
                             ),
                             onSelected: (newValue){
-
-                              cityController.text=newValue;
-                              LoginAndRegisterCubit.get(context).selectCity();
-
-
-
+                              id=newValue.id;
+                              cityController.text=(CommonCubit.get(context).isarabic?newValue.cityArabic:newValue.cityEnglish)!;
                             },
                           ) ,
                           labelText: local.Register_city
@@ -222,35 +232,38 @@ class RegisterScreen extends StatelessWidget {
                       prefix: Icons.location_on, ),
                     SizedBox(height: 15,),
                     ConditionalBuilder(
-                      condition: state != LoadingRegisterState ,
-                        builder: (context)=> Center(
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                color: basicColor
-                            ),
-                            child: BuildMatrialBotton(onPressed:(){
-                              if(formKey.currentState!.validate())
-                              {
-                                LoginAndRegisterCubit.get(context).postRegisterData(
-                                    name:nameController.text ,
-                                    email: emailController.text,
-                                    password: passwordController.text,
-                                    phone: phoneController.text ,
-                                    pharmacyName: pharmacyNameController.text,
-                                    pharmacyAddress: pharmacyAddressController.text);
 
-                               }
+                      condition: state is LoadingRegisterState ,
+                        builder: (context)=> Center(child: CircularProgressIndicator(),),
 
-                            } ,
-                              text: local.Sign_up,
-                              color: SilverChalice,
+                      fallback: (context)=> Center(
+              child: Container(
+              width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40),
+                    color: basicColor
+                ),
+                child: BuildMatrialBotton(onPressed:(){
+                  if(formKey.currentState!.validate())
+                  {
+                    LoginAndRegisterCubit.get(context).postRegisterData(
+                        name:nameController.text ,
+                        email: emailController.text,
+                        password: passwordController.text,
+                        phone: phoneController.text ,
+                        cityId: id!,
+                        pharmacyName: pharmacyNameController.text,
+                        pharmacyAddress: pharmacyAddressController.text);
 
-                            ),
-                          ),
-                        ),
-                      fallback: (context)=>Center(child: CircularProgressIndicator(),),
+                  }
+
+                } ,
+                  text: local.Sign_up,
+                  color: SilverChalice,
+
+                ),
+              ),
+            )
                     )
 
 

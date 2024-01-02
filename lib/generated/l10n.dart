@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// `Can't find account`
+  String get login_error {
+    return Intl.message(
+      'Can\'t find account',
+      name: 'login_error',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Name mustn't be empty`
   String get name_validate {
     return Intl.message(
@@ -365,6 +375,261 @@ class S {
     return Intl.message(
       'Search for medicine',
       name: 'search_med',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Information`
+  String get Account_Information {
+    return Intl.message(
+      'Account Information',
+      name: 'Account_Information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Commercial name`
+  String get Commercial_name {
+    return Intl.message(
+      'Commercial name',
+      name: 'Commercial_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scientific name `
+  String get Scientific_name {
+    return Intl.message(
+      'Scientific name ',
+      name: 'Scientific_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get Category {
+    return Intl.message(
+      'Category',
+      name: 'Category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Company`
+  String get Company {
+    return Intl.message(
+      'Company',
+      name: 'Company',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available quantity`
+  String get Available_quantity {
+    return Intl.message(
+      'Available quantity',
+      name: 'Available_quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expiration date`
+  String get Expiration_date {
+    return Intl.message(
+      'Expiration date',
+      name: 'Expiration_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get Price {
+    return Intl.message(
+      'Price',
+      name: 'Price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `S.P`
+  String get SP {
+    return Intl.message(
+      'S.P',
+      name: 'SP',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get change_password {
+    return Intl.message(
+      'Change Password',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirm_password {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirm_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get Amount {
+    return Intl.message(
+      'Amount',
+      name: 'Amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{howMany, plural, one{Sent} two{In Preparation} other{Delivered}}`
+  String orderStatus(num howMany) {
+    return Intl.plural(
+      howMany,
+      one: 'Sent',
+      two: 'In Preparation',
+      other: 'Delivered',
+      name: 'orderStatus',
+      desc: '',
+      args: [howMany],
+    );
+  }
+
+  /// `{howMany, plural, one{Unpaid} other{Paid}}`
+  String orderPaymentStatus(num howMany) {
+    return Intl.plural(
+      howMany,
+      one: 'Unpaid',
+      other: 'Paid',
+      name: 'orderPaymentStatus',
+      desc: '',
+      args: [howMany],
+    );
+  }
+
+  /// `Profile_Details`
+  String get Profile_Details {
+    return Intl.message(
+      'Profile_Details',
+      name: 'Profile_Details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Cart`
+  String get My_Cart {
+    return Intl.message(
+      'My Cart',
+      name: 'My_Cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get Search {
+    return Intl.message(
+      'Search',
+      name: 'Search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password does not match.Enter New password again here`
+  String get change_password_validate {
+    return Intl.message(
+      'New password does not match.Enter New password again here',
+      name: 'change_password_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password has been changed successfully`
+  String get password_changed {
+    return Intl.message(
+      'The password has been changed successfully',
+      name: 'password_changed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get Logout {
+    return Intl.message(
+      'Logout',
+      name: 'Logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get Total {
+    return Intl.message(
+      'Total',
+      name: 'Total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover a new world of pharmacies`
+  String get onboarding {
+    return Intl.message(
+      'Discover a new world of pharmacies',
+      name: 'onboarding',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create account`
+  String get createAccount {
+    return Intl.message(
+      'Create account',
+      name: 'createAccount',
       desc: '',
       args: [],
     );

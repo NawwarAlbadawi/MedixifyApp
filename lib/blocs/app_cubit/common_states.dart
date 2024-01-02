@@ -8,3 +8,4 @@ String lang;
 
 class GetProfileSuccessesState extends CommonStates {}
 class GetProfileErrorState extends CommonStates {}
+class LogoutSuccsesState extends CommonStates{}

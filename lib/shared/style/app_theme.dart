@@ -15,33 +15,43 @@ final lightTheme=ThemeData(
   appBarTheme: AppBarTheme(
       color: Colors.white,
       elevation: 0.0,
+
+
+      scrolledUnderElevation: 0.0,
       systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-          statusBarColor: Colors.white
+          statusBarIconBrightness: Brightness.dark,
+          statusBarColor: Colors.white,
+
       ),
+
 
       foregroundColor: Colors.white,
       iconTheme: IconThemeData(
         color: SilverChalice,
       ),
 
-      backwardsCompatibility: true,
+
 
 
 
   ),
   scaffoldBackgroundColor: Colors.white,
 
+navigationBarTheme: NavigationBarThemeData(
+  height: 10
+),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    elevation: 10,
+    elevation: 0,
     backgroundColor: Colors.cyan,
-    type: BottomNavigationBarType.fixed
+    type: BottomNavigationBarType.fixed,
+
+
+
   ),
+  visualDensity: VisualDensity.adaptivePlatformDensity,
 
 
-  textTheme: TextTheme(
-
-  )
+  fontFamily: 'Basic'
 
 
 

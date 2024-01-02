@@ -1,13 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 import 'package:medixify/layout/medixify/medixify.dart';
-import 'package:medixify/moduels/home/home.dart';
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:medixify/shared/components/custom_toast.dart';
-import 'package:toastification/toastification.dart';
+
 
 import '../../blocs/login_regiser_cubit/login_register_cubit.dart';
 import '../../blocs/login_regiser_cubit/login_register_states.dart';
@@ -16,11 +16,12 @@ import '../../shared/components/MatrialButton.dart';
 import '../../shared/components/form_field.dart';
 import '../../shared/components/navigator.dart';
 import '../../shared/components/navigator_and_replace.dart';
+import '../../shared/constans/constans.dart';
 import '../../shared/network/local/shared_preferebces.dart';
 import '../../shared/style/colors.dart';
 import '../register/register.dart';
 
-import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 class LoginScreen extends StatelessWidget {
  LoginScreen({super.key});
@@ -30,6 +31,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var local=S.of(context);
     return BlocConsumer<LoginAndRegisterCubit,LoginAndRegisterStates>(
       listener: (context,states){
         if(states is PostLoginDataState)
@@ -41,43 +43,31 @@ class LoginScreen extends StatelessWidget {
                   message: "login",
                   color: Colors.green
                 );
-                toastification.show(
-                  context: context,
-                  autoCloseDuration: const Duration(seconds: 1),
-                  title: '${states.loginModel!.message}',
-                  animationDuration: const Duration(milliseconds: 300),
-                  backgroundColor: Colors.green,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  borderRadius: BorderRadius.circular(30),
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  showProgressBar: false
 
-                );
-                CachHelper.setSharedPreferences(value: states.loginModel!.token, key: 'token');
-                NavigatorAndReplace(
-                  context: context,
-                  widget: MedixifyApp()
-                );
+                CachHelper.setSharedPreferences(value: states.loginModel!.token, key: 'token').then((value) {
+                  CachHelper.setSharedPreferences(value: states.loginModel!.userId, key: 'userId').then((value) {
+                    print(CachHelper.getSharedPreferences('token'));
+                    print(CachHelper.getSharedPreferences('userId'));
+                    token=states.loginModel!.token;
+
+
+                    NavigatorAndReplace(
+                        context: context,
+                        widget: MedixifyApp()
+                    );
+                  });
+
+                });
+
               }
             else if(states.loginModel!.status==0)
               {
-                toastification.show(
+                CustomToast(
+                  color: basicColor,
                   context: context,
-                  autoCloseDuration: const Duration(seconds: 5),
-                  title: '${states.loginModel!.message}',
-                  animationDuration: const Duration(milliseconds: 300),
-                  backgroundColor: basicColor,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  borderRadius: BorderRadius.circular(30),
-                  closeOnClick: true,
-                  pauseOnHover: true,
-
+                  message: local.login_error
                 );
+
               }
 
           }
@@ -100,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                       Container(
                         width: double.infinity,
                         child: Image(image:
-                          AssetImage('assets/images/login.jpeg')),
+                          AssetImage('assets/images/Mobile login.png')),
                       ),
                       Text(local.login_to_continue,
                         style: TextStyle(
@@ -169,6 +159,8 @@ class LoginScreen extends StatelessWidget {
                           child: BuildMatrialBotton(onPressed: (){
                             if(formKey.currentState!.validate())
                               {
+                                print(emailController.text);
+                                print(passwordController.text);
 
                                 cubit.postLoginData(
                                   email: emailController.text,

@@ -13,7 +13,8 @@ class BuildMatrialBotton extends StatelessWidget {
       child: Text('$text',
         style: TextStyle(
             fontSize:20,
-            color: color
+            color: color,
+          fontWeight: FontWeight.bold
         ),),
 
     );

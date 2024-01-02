@@ -32,7 +32,7 @@ dependencies:
     sdk: flutter
 
   sqflite: ^2.1.0+2
-  intl: ^0.17.0
+  intl: ^0.18.1
   dio: ^5.3.3
   hexcolor: ^3.0.1
   shared_preferences: ^2.2.2
@@ -48,6 +48,8 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   dot_navigation_bar: ^1.0.2
   flutter_dialogs: ^3.0.0
+  crystal_navigation_bar: ^1.0.0
+
 
 
   flutter_localizations:
@@ -59,6 +61,7 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/alogo.png"
   intl_utils: ^2.8.6
+
 
 
 
@@ -94,13 +97,20 @@ flutter:
 
 
   assets:
-     - assets/images/Sign_up.jpeg
+
      - assets/images/login.jpeg
      - assets/images/notfound.jpg
-     - assets/images/onboard.jpg
-     - assets/images/register2.png
+
+
      - assets/images/avatar.jpg
-     - assets/images/new.png
+
+     - assets/images/Onboarding.png
+     - assets/images/Mobile login.png
+     - assets/images/Sign up.png
+     - assets/images/Reset password.png
+     - assets/images/Add to Cart.png
+     - assets/images/No data.png
+     - assets/images/Order.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -108,15 +118,11 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+
+  fonts:
+     - family: Basic
+       fonts:
+         - asset: assets/fonts/Basic-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

@@ -34,5 +34,7 @@ class ErrorRegisterState extends LoginAndRegisterStates {
   ErrorRegisterState(this.registerErrorModel);
 
 }
+class GetCityState extends LoginAndRegisterStates{}
+class LoadingCity extends LoginAndRegisterStates{}
 
 

@@ -5,6 +5,7 @@
   "Login_Email_or_Phone": "Email address or Phone number",
   "Login_password": "Password",
   "email_validate":"Email or Phone mustn't be empty",
+  "login_error": "Can't find account",
   "name_validate":"Name mustn't be empty",
   "phone_validate":"Phone mustn't be empty",
   "phone_validate2":"Please enter correct number",
@@ -31,7 +32,39 @@
   "favorite":"Favorite",
   "orders": "orders",
   "profile":"Profile",
-  "search_med": "Search for medicine"
+  "search_med": "Search for medicine",
+  "Account_Information": "Account Information",
+  "Commercial_name":"Commercial name",
+  "Scientific_name": "Scientific name ",
+  "Category": "Category",
+  "Company":"Company",
+  "Available_quantity": "Available quantity",
+  "Expiration_date": "Expiration date",
+  "Price":"Price",
+  "SP": "S.P",
+  "change_password": "Change Password",
+  "confirm_password": "Confirm Password",
+  "save":"Save",
+  "Amount": "Amount",
+  "name": "Name",
+  "orderStatus": "{howMany, plural, one{Sent} two{In Preparation} other{Delivered}}",
+  "orderPaymentStatus" : "{howMany, plural, one{Unpaid} other{Paid}}",
+  "Profile_Details": "Profile_Details",
+  "My_Cart":"My Cart",
+  "Search": "Search",
+  "change_password_validate": "New password does not match.Enter New password again here",
+  "password_changed": "The password has been changed successfully",
+  "Logout": "Logout",
+  "Total": "Total",
+  "onboarding": "Discover a new world of pharmacies",
+  "createAccount": "Create account"
+
+
+
+
+
+
+
 
 
 

@@ -20,15 +20,37 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(howMany) =>
+      "${Intl.plural(howMany, one: 'Unpaid', other: 'Paid')}";
+
+  static String m1(howMany) =>
+      "${Intl.plural(howMany, one: 'Sent', two: 'In Preparation', other: 'Delivered')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Account_Information":
+            MessageLookupByLibrary.simpleMessage("Account Information"),
+        "Amount": MessageLookupByLibrary.simpleMessage("Amount"),
+        "Available_quantity":
+            MessageLookupByLibrary.simpleMessage("Available quantity"),
+        "Category": MessageLookupByLibrary.simpleMessage("Category"),
+        "Commercial_name":
+            MessageLookupByLibrary.simpleMessage("Commercial name"),
+        "Company": MessageLookupByLibrary.simpleMessage("Company"),
         "Dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account ?"),
+        "Expiration_date":
+            MessageLookupByLibrary.simpleMessage("Expiration date"),
         "Login_Email_or_Phone": MessageLookupByLibrary.simpleMessage(
             "Email address or Phone number"),
         "Login_password": MessageLookupByLibrary.simpleMessage("Password"),
+        "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "My_Cart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "On_boarding_title":
             MessageLookupByLibrary.simpleMessage("Welcome To Our App"),
+        "Price": MessageLookupByLibrary.simpleMessage("Price"),
+        "Profile_Details":
+            MessageLookupByLibrary.simpleMessage("Profile_Details"),
         "Register": MessageLookupByLibrary.simpleMessage("Register"),
         "Register_Email": MessageLookupByLibrary.simpleMessage("Email address"),
         "Register_Password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -40,19 +62,40 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pharmacy address"),
         "Register_pharmacy_name":
             MessageLookupByLibrary.simpleMessage("Pharmacy name"),
+        "SP": MessageLookupByLibrary.simpleMessage("S.P"),
+        "Scientific_name":
+            MessageLookupByLibrary.simpleMessage("Scientific name "),
+        "Search": MessageLookupByLibrary.simpleMessage("Search"),
         "Sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "Total": MessageLookupByLibrary.simpleMessage("Total"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("Change Password"),
+        "change_password_validate": MessageLookupByLibrary.simpleMessage(
+            "New password does not match.Enter New password again here"),
         "city_validate":
             MessageLookupByLibrary.simpleMessage("City mustn\'t be empty"),
+        "confirm_password":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "createAccount": MessageLookupByLibrary.simpleMessage("Create account"),
         "email_validate": MessageLookupByLibrary.simpleMessage(
             "Email or Phone mustn\'t be empty"),
         "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full name"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "login_error":
+            MessageLookupByLibrary.simpleMessage("Can\'t find account"),
         "login_to_continue":
             MessageLookupByLibrary.simpleMessage("Login to continue"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "name_validate":
             MessageLookupByLibrary.simpleMessage("Name mustn\'t be empty"),
+        "onboarding": MessageLookupByLibrary.simpleMessage(
+            "Discover a new world of pharmacies"),
+        "orderPaymentStatus": m0,
+        "orderStatus": m1,
         "orders": MessageLookupByLibrary.simpleMessage("orders"),
+        "password_changed": MessageLookupByLibrary.simpleMessage(
+            "The password has been changed successfully"),
         "password_validate1":
             MessageLookupByLibrary.simpleMessage("Password mustn\'t be empty"),
         "password_validate2":
@@ -68,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_register_to_login":
             MessageLookupByLibrary.simpleMessage("Please register to login"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "search_med":
             MessageLookupByLibrary.simpleMessage("Search for medicine"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign In"),

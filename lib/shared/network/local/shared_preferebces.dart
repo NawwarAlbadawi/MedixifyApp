@@ -36,6 +36,12 @@ class CachHelper{
 
 
   }
+  static Future<bool> deleteSharedPreferences({
+    required String key
+})async
+  {
+    return await sharedPreferences!.remove(key);
+  }
 
 
 }

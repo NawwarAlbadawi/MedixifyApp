@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medixify/models/city_model.dart';
 import 'package:medixify/models/login_model/login_model.dart';
 import 'package:medixify/models/register_error/register_error.dart';
 import 'package:medixify/shared/network/local/shared_preferebces.dart';
@@ -52,9 +53,28 @@ static LoginAndRegisterCubit get(context)=>BlocProvider.of(context);
    });
 
  }
+ CityModel ? cityModel;
+List<dynamic>arabicCity=[];
+List<dynamic>englishCity=[];
  void selectCity()
  {
-   emit(SelectCityState());
+   emit(LoadingCity());
+   DioHelper.getData(path:'getAllCitys').then((value){
+     cityModel=CityModel.fromJson(value.data);
+     cityModel!.cityData!.forEach((element) {
+       arabicCity.add(element.cityArabic);
+     });
+
+     cityModel!.cityData!.forEach((element) {
+       englishCity.add(element.cityEnglish);
+     });
+     print(cityModel!.cityData![0].cityEnglish);
+     emit(GetCityState());
+   } ).catchError((error){
+
+   });
+
+   //emit(SelectCityState());
  }
 RegisterErrorModel ? registerErrorModel;
 void postRegisterData(
@@ -65,6 +85,7 @@ void postRegisterData(
       required String phone,
       required String pharmacyName,
       required String pharmacyAddress,
+      required int cityId
     }
     )
 {
@@ -77,15 +98,14 @@ void postRegisterData(
         'Phone_number' : phone,
         'Password' :password,
         'Pharmacy_name' :pharmacyName,
-        'City' : 1,
+        'City' : cityId,
         'Pharmacy_address' : pharmacyAddress
 
       }).then((value) {
-
-
     emit(PostRegisterState());
   }
   ).catchError((error){
+    print(error.toString());
 
     if(error is DioException)
       {

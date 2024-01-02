@@ -17,6 +17,8 @@ class BuildFormField extends StatelessWidget {
      this.suffixBotton,
      this.radius=20,
      this.color,
+     this.Autofocus=false,
+     this.onTap
 
 
 
@@ -35,6 +37,8 @@ class BuildFormField extends StatelessWidget {
    bool ?  needscure;
    double radius;
    Color ? color;
+   bool ?  Autofocus;
+   Function ()?onTap;
 
 
 
@@ -68,6 +72,8 @@ class BuildFormField extends StatelessWidget {
         scrollPhysics: BouncingScrollPhysics(),
         cursorColor: ViridianGreen,
         textInputAction: TextInputAction.next,
+        autofocus: Autofocus! ,
+        onTap: onTap,
 
 
 
