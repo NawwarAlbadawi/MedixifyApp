@@ -24,7 +24,7 @@ class CartScreen extends StatelessWidget {
       listener: (context,state){
         if(state is OrderTheCartSuccessesState)
           {
-            if(MedixifyCubit.get(context).remainingInCart!.status==0)
+            if(MedixifyCubit.get(context).remainingInCart!.data!.length!=0)
         {
         CustomToast(
         context: context,

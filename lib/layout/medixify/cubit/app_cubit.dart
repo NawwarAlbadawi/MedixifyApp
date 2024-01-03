@@ -272,8 +272,9 @@ int total=0;
   {
     DioHelper.postData(path:'create_order_from_basket/1/${CachHelper.getSharedPreferences('userId')}' ).
     then((value) {
-      remainingInCart=RemainingInCart.fromJson(value.data);
+
       emit(OrderTheCartSuccessesState());
+      remainingInCart=RemainingInCart.fromJson(value.data);
       GetCart();
     }).catchError((error){
       emit(OrderTheCartErrorState());
