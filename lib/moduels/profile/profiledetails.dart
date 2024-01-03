@@ -165,11 +165,11 @@ class ProfileDetails extends StatelessWidget {
                             icon: Icon(Icons.location_city_outlined),
 
                             itemBuilder: (context)=>List.generate(
-                                LoginAndRegisterCubit.get(context).cityModel!.cityData!.length,
+                               cubit.cityModel!.cityData!.length,
                                     (index)=>PopupMenuItem(child: Text('${CommonCubit.get(context).isarabic?
-                                    LoginAndRegisterCubit.get(context).arabicCity[index]: LoginAndRegisterCubit.get(context).englishCity[index]}',
+                                    cubit.arabicCity[index]: cubit.englishCity[index]}',
                                   selectionColor: Colors.red,),
-                                  value: LoginAndRegisterCubit.get(context).cityModel!.cityData![index] ,)
+                                  value: cubit.cityModel!.cityData![index] ,)
                             ),
                             onSelected: (newValue){
                               id=newValue.id;

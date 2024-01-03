@@ -49,3 +49,5 @@ class OrderTheCartErrorState extends MedixifyStates{}
 class GetOrderSuccessesState extends MedixifyStates{}
 class GetOrderErrorState extends MedixifyStates{}
 
+class GetCityState extends MedixifyStates{}
+class LoadingCity extends MedixifyStates{}

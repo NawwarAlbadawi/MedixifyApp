@@ -30,13 +30,13 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CommonCubit,CommonStates>(
+    return BlocConsumer<MedixifyCubit,MedixifyStates>(
         listener:(context,state){
 
         },
         builder: (context,state){
 
-          return ConditionalBuilder(condition: MedixifyCubit.get(context).productsModel!=null,
+          return ConditionalBuilder(condition: MedixifyCubit.get(context).profileModel!=null,
               builder:(context)=>Container(
                 color:basicColor,
 

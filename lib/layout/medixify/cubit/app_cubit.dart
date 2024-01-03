@@ -17,6 +17,7 @@ import 'package:medixify/moduels/home/home.dart';
 import 'package:medixify/moduels/profile/profile.dart';
 import 'package:medixify/shared/network/local/shared_preferebces.dart';
 
+import '../../../models/city_model.dart';
 import '../../../models/search_model/search_model.dart';
 import '../../../moduels/orders/orders.dart';
 import '../../../shared/constans/constans.dart';
@@ -290,6 +291,31 @@ OrderModel? orderModel;
       print('${error.toString()}');
       emit(GetOrderErrorState());
     });
+  }
+
+
+  CityModel ? cityModel;
+  List<dynamic>arabicCity=[];
+  List<dynamic>englishCity=[];
+  void selectCity()
+  {
+    emit(LoadingCity());
+    DioHelper.getData(path:'getAllCitys').then((value){
+      cityModel=CityModel.fromJson(value.data);
+      cityModel!.cityData!.forEach((element) {
+        arabicCity.add(element.cityArabic);
+      });
+
+      cityModel!.cityData!.forEach((element) {
+        englishCity.add(element.cityEnglish);
+      });
+      print(cityModel!.cityData![0].cityEnglish);
+      emit(GetCityState());
+    } ).catchError((error){
+
+    });
+
+    //emit(SelectCityState());
   }
 
 

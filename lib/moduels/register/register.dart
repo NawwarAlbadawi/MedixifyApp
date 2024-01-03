@@ -95,14 +95,16 @@ class RegisterScreen extends StatelessWidget {
                     Text(local.Register,
                       style: TextStyle(
                           fontSize: 40,
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.bold,
+                        color: basicColor
 
                       ),),
                     SizedBox(height: 10,),
                     Text(local.please_register_to_login,
                       style: TextStyle(
                           fontSize: 20,
-                          fontWeight: FontWeight.w500
+                          fontWeight: FontWeight.w500,
+                        color: SilverChalice
 
                       ),),
                     SizedBox(height: 20,),
