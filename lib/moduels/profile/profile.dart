@@ -143,20 +143,20 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 20,),
-                          Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(40),
+                          InkWell(
+                            onTap: (){
+                              NavigateTo(
+                                  context: context,
+                                  widget: ChangePassword()
+                              );
+                            },
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.4),
+                                borderRadius: BorderRadius.circular(40),
 
-                            ),
-                            child: InkWell(
-                              onTap: (){
-                                NavigateTo(
-                                    context: context,
-                                    widget: ChangePassword()
-                                );
-                              },
+                              ),
                               child: Row(
                                 children: [
                                   Spacer(),
@@ -174,11 +174,9 @@ class ProfileScreen extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   Spacer(),
+                                  SizedBox(width: 20,),
                                   IconButton(
-                                    onPressed: (){NavigateTo(
-                                        context: context,
-                                        widget: ProfileDetails()
-                                    );},
+                                    onPressed: (){},
                                     icon:Icon(
                                       Icons.arrow_forward_ios,
                                       color: Colors.grey,
@@ -193,32 +191,33 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 20,),
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                color:  Colors.grey.withOpacity(0.4)
-                            ),
-                            child: Row(
-                              children: [
-                                SizedBox(width: 25,),
-                                IconButton(onPressed: (){
-                                  CommonCubit.get(context).changeLanguage();
-
-                                },
-                                    icon: Icon(Ionicons.language,
-                                      color: basicColor,)),
-                                SizedBox(width: 35,),
-
-
-                                Text(
-                                  CommonCubit.get(context).lang,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 25,
-                                      color: basicColor
-                                  ),
-                                )
-                              ],
+                          InkWell(
+                            onTap: (){
+                              CommonCubit.get(context).changeLanguage();
+                            },
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(40),
+                                  color:  Colors.grey.withOpacity(0.4)
+                              ),
+                              child: Row(
+                                children: [
+                                  SizedBox(width: 25,),
+                                  Icon(
+                                      Ionicons.language,
+                                        color: basicColor,),
+                                  SizedBox(width: 35,),
+                                  Text(
+                                    CommonCubit.get(context).lang,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 25,
+                                        color: basicColor
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           Spacer(),

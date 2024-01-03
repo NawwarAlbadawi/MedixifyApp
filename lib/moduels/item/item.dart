@@ -26,7 +26,7 @@ dynamic model;
         if(state is PutIntoCartSuccessesState)
           {
             CustomToast(
-            message: "Added to cart",
+            message: S.of(context).Addedtocart,
               context: context,
               color: SilverChalice,
 
@@ -89,7 +89,7 @@ dynamic model;
                               MedixifyCubit.get(context).postFavorites(model!.id!);
                             }, icon: Icon(
                           Icons.favorite_rounded,
-                          color: MedixifyCubit.get(context).favorites[(model!.id!-1)!]?Colors.red:Colors.grey,size: 25,)
+                          color: MedixifyCubit.get(context).favorites[model!.id!]!?Colors.red:Colors.grey,size: 25,)
                         ),
                       ],
                     ),
@@ -369,7 +369,7 @@ dynamic model;
                           color: basicColor
                       ),
                       child:BuildMatrialBotton(
-                        text: "Add To Cart",
+                        text: local.AddToCart,
                         onPressed: (){
                           if(quantity!=0)
                             {

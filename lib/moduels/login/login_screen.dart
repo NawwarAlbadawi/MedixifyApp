@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
               {
                 CustomToast(
                   context: context,
-                  message: "login",
+                  message: local.loginMessage,
                   color: Colors.green
                 );
 

@@ -55,6 +55,13 @@
   "Logout": "تسجيل الخروج",
   "Total":  "الاجمالي",
   "onboarding": "اكتشف عالم جديد للصيدليات",
-  "createAccount": "انشاء حساب"
+  "createAccount": "انشاء حساب",
+  "loginMessage":"تم تسجيل الدخول بنجاح",
+  "remainingProducts": "الكمية المتبقية من الادوية غير متوفرة",
+  "youOrder": "طلبك",
+  "profileUpdate":"تم تغيير معلومات الحساب  بنجاح",
+  "AddToCart":"اضافة الى السلة",
+  "Addedtocart": "تم الاضافة الى السلة",
+  "OrderNow": "اطلب الان"
 
 }

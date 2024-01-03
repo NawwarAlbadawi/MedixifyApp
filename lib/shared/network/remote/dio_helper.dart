@@ -7,6 +7,11 @@ class DioHelper {
     {
         dio=Dio(BaseOptions(
             baseUrl: 'http://${ip}:8001/api/',
+          connectTimeout: Duration(
+            seconds: 1
+          )
+
+
         ));
     }
 
@@ -49,7 +54,8 @@ class DioHelper {
       };
         return await dio.get(path,
           data: data,
-          queryParameters: query
+          queryParameters: query,
+
         );
       }
 

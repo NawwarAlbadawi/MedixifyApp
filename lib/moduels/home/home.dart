@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
             var cubit=MedixifyCubit.get(context);
 
             return ConditionalBuilder(
-                condition:cubit.productsModel!=null&&cubit.categoriesModel!=null&&cubit.searchModel!=null ,
+                condition:cubit.productsModel!=null&&cubit.categoriesModel!=null&&cubit.searchModel!=null   ,
                 builder: (context)=>SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   child: Padding(

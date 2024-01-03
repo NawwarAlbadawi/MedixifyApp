@@ -36,7 +36,7 @@ class _ItemsGridState extends State<ItemsGrid> {
   @override
   Widget build(BuildContext context) {
 
-
+  print(widget.model!.data!.length);
     return ConditionalBuilder(
         condition:widget.model!.data!.length!=0,
         builder: (context)=>Container(
@@ -63,94 +63,107 @@ class _ItemsGridState extends State<ItemsGrid> {
 
                   ),
 
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  child:ConditionalBuilder(
+                    condition: widget!.model!.data!=null,
+                    builder: (context)=>Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
 
 
-                      children: [
+                        children: [
 
-                        Container(
-                          height: 150,
-                          width: double.infinity,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image(image: setImage(widget!.model!.data![index]!.image),
-                                fit: BoxFit.fill,)),
-                        ),
+                          Container(
+                            height: 150,
+                            width: double.infinity,
 
-
-                        SizedBox(height: 20,),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('${S.of(context).name}',
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white.withOpacity(0.4),
-                                fontWeight: FontWeight.w600
-
-                              ),),
-                            Text('${CommonCubit.get(context).isarabic? widget.model!.data![index].arMarketingName:widget.model!.data![index].enMarketingName!}',
-                              style: TextStyle(
-                                  fontSize: 25,
-                                  color: SilverChalice,
-                                fontWeight: FontWeight.bold
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: Colors.white,
                             ),
-                          ],
-                        ),
-                        Spacer(),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image(image: setImage(widget!.model!.data![index]!.image),
+                                  fit: BoxFit.fill,)),
+                          ),
 
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('${S.of(context).Price} ',
-                                  style: TextStyle(
+
+                          SizedBox(height: 20,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('  ${S.of(context).name}',
+                                style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.white.withOpacity(0.4),
-                                      fontWeight: FontWeight.w600
+                                    fontWeight: FontWeight.w600
 
-                                  ),),
-                                Text('${widget.model!.data![index].price!} ${S.of(context).SP}',
-                                  style: TextStyle(
-                                      color: SilverChalice,
+                                ),),
+                              Text('${CommonCubit.get(context).isarabic? widget.model!.data![index].arMarketingName:widget.model!.data![index].enMarketingName!}',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    color: SilverChalice,
                                     fontWeight: FontWeight.bold
-                                  ),),
-                              ],
-                            ),
-                            Spacer(),
-                            IconButton(
-                              onPressed: (){
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                              ),
+                            ],
+                          ),
+
+                          Spacer(),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('${S.of(context).Price} ',
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.white.withOpacity(0.4),
+                                        fontWeight: FontWeight.w600
+
+                                    ),),
+                                  Text('${widget.model!.data![index].price!} ${S.of(context).SP}',
+                                    style: TextStyle(
+                                        color: SilverChalice,
+                                        fontWeight: FontWeight.bold
+                                    ),),
+                                ],
+                              ),
+                              Spacer(),
+                              IconButton(
+                                onPressed: (){
 
 
 
-                              MedixifyCubit.get(context).postFavorites(
+                                  MedixifyCubit.get(context).postFavorites(
 
-                                  widget.model!.data![index].id!
+                                      widget.model!.data![index].id!
 
-                              );
-                            },
-                              icon: Icon(
-                                Icons.favorite_rounded,
-                              color: MedixifyCubit.get(context).favorites[widget.model!.data![index].id-1]!?Colors.red:Colors.white,
-                             size: 25,
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.favorite_rounded,
+                                  color: MedixifyCubit.get(context).favorites[widget.model!.data![index].id]!?Colors.red:Colors.white,
+                                  size: 25,
 
-                            ),
-                              color:SilverChalice,
-                            )
-                          ],
-                        )
+                                ),
+                                color:SilverChalice,
+                              )
+                            ],
+                          )
 
-                      ],
+
+                        ],
+                      ),
                     ),
-                  ),
+                    fallback: (context)=>CircularProgressIndicator(),
+                  )
+
+                  ,
                 ),
               );
 
@@ -159,7 +172,7 @@ class _ItemsGridState extends State<ItemsGrid> {
             ),
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            childAspectRatio:1/1.71,
+            childAspectRatio:1/1.8,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
 

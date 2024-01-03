@@ -32,8 +32,16 @@ class ProfileDetails extends StatelessWidget {
         if(state is GetProfileSuccessesState)
           {
             CustomToast(
-              message: 'Changed',
+              message: local.profileUpdate,
               color: SilverChalice,
+              context: context,
+            );
+          }
+        else if (state is UpdateProfileErrorState)
+          {
+            CustomToast(
+              message: state.error!.message!,
+              color: basicColor,
               context: context,
             );
           }
@@ -221,7 +229,6 @@ class ProfileDetails extends StatelessWidget {
                             pharmacyAddress: pharmacyAddressController.text,
                             pharmacyName: pharmacyNameController.text,
                             city:id
-
                           );
                         },
                           text: local.save,

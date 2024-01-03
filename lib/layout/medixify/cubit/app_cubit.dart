@@ -10,6 +10,8 @@ import 'package:medixify/models/favorites_model/favorites_model.dart';
 import 'package:medixify/models/home_products_model/home_products_model.dart';
 import 'package:medixify/models/order_model/OrderModel.dart';
 import 'package:medixify/models/profile_model/profile_model.dart';
+import 'package:medixify/models/remaining%20_in_cart_model/remaining_in_cart_model.dart';
+import 'package:medixify/models/update_profile_error_model/update_profile_error_model.dart';
 import 'package:medixify/moduels/favorite/favorite.dart';
 import 'package:medixify/moduels/home/home.dart';
 import 'package:medixify/moduels/profile/profile.dart';
@@ -72,6 +74,7 @@ ProfileModel ?profileModel;
       emit(GetProfileErrorState());
     });
   }
+  UpdateProfileError ?updateProfileError;
   void updateProfileData(
   {
     String ?name,String ?password,
@@ -102,13 +105,14 @@ ProfileModel ?profileModel;
       emit(UpdateProfileSuccessesState());
 
     }).catchError((error){
+      updateProfileError=UpdateProfileError.fromJson(error.response!.data);
 
-      emit(UpdateProfileErrorState());
+      emit(UpdateProfileErrorState(updateProfileError!));
     });
   }
 
 
- late List<bool>favorites=[];
+ late Map<int,bool>favorites={};
 ProductsModel?productsModel;
 bool load=false;
   void getProducts()
@@ -120,7 +124,9 @@ bool load=false;
        token:token ).then((value) {
          productsModel=ProductsModel.fromJson( value.data);
          productsModel!.data!.forEach((element) {
-           favorites.add(element.favorite!);
+           favorites.addAll({
+             element.id!:element.favorite!
+           });
          });
           emit(GetHomeProductsSuccessesState());
           getFavorites();
@@ -158,7 +164,7 @@ bool load=false;
           "products_id" : id
         },
         ).then((value) {
-       favorites[id-1]=!favorites[id-1];
+       favorites[id]=!favorites[id]!;
       getFavorites();
       getProducts();
       GetCart();
@@ -234,11 +240,11 @@ int total=0;
 
   void GetCart ()
   {
+
     DioHelper.getData(path:'getAllProductsInbasket/${CachHelper.getSharedPreferences('userId')}' ).
     then((value) {
 
       cartModel=CartModel.fromJson(value.data);
-
       emit(GetCartSuccessesState());
     }).catchError((error){
       print(error.toString());
@@ -250,17 +256,22 @@ int total=0;
   void removeFromCart(int productId)
   {
     DioHelper.deleteData(path: 'deleteProduct_basket/${productId}',
+
       data: {
       'phamacist_id':CachHelper.getSharedPreferences('userId')
       }
     ).then((value) {
+      emit(RemoveFromCart());
       GetCart();
     });
   }
+  RemainingInCart? remainingInCart;
+
   void OrderTheCart()
   {
     DioHelper.postData(path:'create_order_from_basket/1/${CachHelper.getSharedPreferences('userId')}' ).
     then((value) {
+      remainingInCart=RemainingInCart.fromJson(value.data);
       emit(OrderTheCartSuccessesState());
       GetCart();
     }).catchError((error){

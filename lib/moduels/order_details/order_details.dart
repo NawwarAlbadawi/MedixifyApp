@@ -20,7 +20,7 @@ class OrderDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Your Order',
+          '${S.of(context).youOrder}',
           style: TextStyle(
               fontSize: 30,
               color: basicColor,

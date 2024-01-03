@@ -30,6 +30,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Account_Information":
             MessageLookupByLibrary.simpleMessage(" معلومات الحساب "),
+        "AddToCart": MessageLookupByLibrary.simpleMessage("اضافة الى السلة"),
+        "Addedtocart":
+            MessageLookupByLibrary.simpleMessage("تم الاضافة الى السلة"),
         "Amount": MessageLookupByLibrary.simpleMessage("الكمية"),
         "Available_quantity":
             MessageLookupByLibrary.simpleMessage("الكمية المتاحة "),
@@ -48,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "My_Cart": MessageLookupByLibrary.simpleMessage("سلَتي"),
         "On_boarding_title":
             MessageLookupByLibrary.simpleMessage("مرحبا بك في تطبيقنا"),
+        "OrderNow": MessageLookupByLibrary.simpleMessage("اطلب الان"),
         "Price": MessageLookupByLibrary.simpleMessage("السعر"),
         "Profile_Details":
             MessageLookupByLibrary.simpleMessage("تفاصيل الحساب"),
@@ -82,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "loginMessage":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
         "login_error":
             MessageLookupByLibrary.simpleMessage(" لايمكن ايجاد الحساب"),
         "login_to_continue":
@@ -111,9 +117,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_register_to_login": MessageLookupByLibrary.simpleMessage(
             "ادخل المعلومات المطلوبة لتسجيل الدخول "),
         "profile": MessageLookupByLibrary.simpleMessage("الحساب"),
+        "profileUpdate": MessageLookupByLibrary.simpleMessage(
+            "تم تغيير معلومات الحساب  بنجاح"),
+        "remainingProducts": MessageLookupByLibrary.simpleMessage(
+            "الكمية المتبقية من الادوية غير متوفرة"),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "search_med": MessageLookupByLibrary.simpleMessage("ابحث عن دواء"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "start_Now": MessageLookupByLibrary.simpleMessage("ابدأ الان ")
+        "start_Now": MessageLookupByLibrary.simpleMessage("ابدأ الان "),
+        "youOrder": MessageLookupByLibrary.simpleMessage("طلبك")
       };
 }

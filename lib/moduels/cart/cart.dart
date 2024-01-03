@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medixify/layout/medixify/cubit/app_cubit.dart';
 import 'package:medixify/layout/medixify/cubit/app_states.dart';
 import 'package:medixify/shared/components/cart_list.dart';
+import 'package:medixify/shared/components/custom_toast.dart';
 import 'package:medixify/shared/style/colors.dart';
 
 import '../../generated/l10n.dart';
@@ -20,7 +21,19 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     MedixifyCubit.get(context).GetCart();
     return BlocConsumer<MedixifyCubit,MedixifyStates>(
-      listener: (context,state){},
+      listener: (context,state){
+        if(state is OrderTheCartSuccessesState)
+          {
+            if(MedixifyCubit.get(context).remainingInCart!.status==0)
+        {
+        CustomToast(
+        context: context,
+        message: S.of(context).remainingProducts,
+        color: basicColor
+        );}
+          }
+
+      },
         builder:(context,state){
 
      return   Scaffold(
@@ -132,10 +145,12 @@ class CartScreen extends StatelessWidget {
                      ),
                      child: BuildMatrialBotton(
                        onPressed: (){
-                         MedixifyCubit.get(context).GetCart();
                          MedixifyCubit.get(context).OrderTheCart();
-                     },
-                       text: 'Buy Now',
+                         MedixifyCubit.get(context).GetCart();
+
+                         }
+                     ,
+                       text: S.of(context).OrderNow,
                        color: SilverChalice,
                      ),
                    )

@@ -104,7 +104,7 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             theme: lightTheme,
             themeMode: ThemeMode.light,
-            home:OnBoardingScreen(),
+            home:screen,
           );
         },
 

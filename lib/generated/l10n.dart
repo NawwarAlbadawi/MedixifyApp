@@ -634,6 +634,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Login done successfully`
+  String get loginMessage {
+    return Intl.message(
+      'Login done successfully',
+      name: 'loginMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The remaining quantity of medicine is not available`
+  String get remainingProducts {
+    return Intl.message(
+      'The remaining quantity of medicine is not available',
+      name: 'remainingProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order`
+  String get youOrder {
+    return Intl.message(
+      'Your order',
+      name: 'youOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The account information has been changed successfully`
+  String get profileUpdate {
+    return Intl.message(
+      'The account information has been changed successfully',
+      name: 'profileUpdate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add To Cart`
+  String get AddToCart {
+    return Intl.message(
+      'Add To Cart',
+      name: 'AddToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Added to cart`
+  String get Addedtocart {
+    return Intl.message(
+      'Added to cart',
+      name: 'Addedtocart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order now`
+  String get OrderNow {
+    return Intl.message(
+      'Order now',
+      name: 'OrderNow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -57,7 +57,14 @@
   "Logout": "Logout",
   "Total": "Total",
   "onboarding": "Discover a new world of pharmacies",
-  "createAccount": "Create account"
+  "createAccount": "Create account",
+  "loginMessage":"Login done successfully",
+  "remainingProducts": "The remaining quantity of medicine is not available",
+  "youOrder": "Your order",
+  "profileUpdate":"The account information has been changed successfully",
+  "AddToCart":"Add To Cart",
+  "Addedtocart": "Added to cart",
+  "OrderNow": "Order now"
 
 
 

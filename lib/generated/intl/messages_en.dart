@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Account_Information":
             MessageLookupByLibrary.simpleMessage("Account Information"),
+        "AddToCart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+        "Addedtocart": MessageLookupByLibrary.simpleMessage("Added to cart"),
         "Amount": MessageLookupByLibrary.simpleMessage("Amount"),
         "Available_quantity":
             MessageLookupByLibrary.simpleMessage("Available quantity"),
@@ -48,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "My_Cart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "On_boarding_title":
             MessageLookupByLibrary.simpleMessage("Welcome To Our App"),
+        "OrderNow": MessageLookupByLibrary.simpleMessage("Order now"),
         "Price": MessageLookupByLibrary.simpleMessage("Price"),
         "Profile_Details":
             MessageLookupByLibrary.simpleMessage("Profile_Details"),
@@ -82,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full name"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "loginMessage":
+            MessageLookupByLibrary.simpleMessage("Login done successfully"),
         "login_error":
             MessageLookupByLibrary.simpleMessage("Can\'t find account"),
         "login_to_continue":
@@ -111,10 +116,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_register_to_login":
             MessageLookupByLibrary.simpleMessage("Please register to login"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "profileUpdate": MessageLookupByLibrary.simpleMessage(
+            "The account information has been changed successfully"),
+        "remainingProducts": MessageLookupByLibrary.simpleMessage(
+            "The remaining quantity of medicine is not available"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "search_med":
             MessageLookupByLibrary.simpleMessage("Search for medicine"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign In"),
-        "start_Now": MessageLookupByLibrary.simpleMessage("Start Now")
+        "start_Now": MessageLookupByLibrary.simpleMessage("Start Now"),
+        "youOrder": MessageLookupByLibrary.simpleMessage("Your order")
       };
 }

@@ -45,8 +45,9 @@ class CartList extends StatelessWidget {
 
                   );
                 },
+
                 child: Container(
-                  height: 200,
+                  height: 210,
                   width: double.infinity,
                   child: Row(
                     children: [
@@ -111,7 +112,7 @@ class CartList extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Text(
-                                    '${model!.data![index].quantity}',
+                                    '${model!.data![index].basketQuantity}',
                                     style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold,
